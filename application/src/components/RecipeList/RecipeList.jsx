@@ -1,22 +1,23 @@
-import React from 'react';
-import Grid from '@material-ui/core/Grid';
+import React from "react";
+import Grid from "@material-ui/core/Grid";
 import RecipeCard from "../RecipeCard/RecipeCard";
-// import withHocs from './RecipeCardHoc';
+import withHocs from "./RecipeListHoc";
 
-export default function RecipeList(props) {
+function RecipeList(props) {
+  const { data = {} } = props;
+  const { recipes = [] } = data;
 
   return (
     <Grid container spacing={4}>
-      { [1, 2, 3, 4, 5, 6].map((card) => 
-        <RecipeCard 
-          key={card} 
-          name={'name'}
-          description={'description'}
-        />)
-      } 
+      {recipes.map((recipe) => (
+        <RecipeCard
+          key={recipe.id}
+          name={recipe.name}
+          description={recipe.description}
+        />
+      ))}
     </Grid>
   );
 }
 
-// export default withHocs(RecipeList);
-
+export default withHocs(RecipeList);
