@@ -16,7 +16,7 @@ class App extends Component {
       <ApolloProvider client={client}>
         <CssBaseline />
         <NavBar />
-        <Recipes />
+        {this.props.children}
         <Footer />
       </ApolloProvider>
     );
