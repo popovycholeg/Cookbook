@@ -9,7 +9,10 @@ import withHocs from "./RecipeFormHoc";
 
 class RecipeForm extends React.Component {
   handleSave = () => {
-
+    const { selectedValue, onClose, addRecipe } = this.props;
+    const { name, description } = selectedValue;
+    addRecipe({ name, description});
+    onClose();
   };
 
   render() {
