@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
-import Recipes from "./containers/Recipes";
 import Footer from "./components/Footer/Footer";
 import NavBar from "./components/NavBar/NavBar";
 

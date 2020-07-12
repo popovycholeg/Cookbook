@@ -1,4 +1,8 @@
-import { graphql } from 'react-apollo';
-import { receipsQuery } from './queries';
+import { graphql } from "react-apollo";
+import { withStyles } from '@material-ui/core/styles';
+import { compose } from "recompose";
 
-export default graphql(receipsQuery);
+import { receipsQuery } from "./queries";
+import { styles } from "./styles";
+
+export default compose(graphql(receipsQuery), withStyles(styles));

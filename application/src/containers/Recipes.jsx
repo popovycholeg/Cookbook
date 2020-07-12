@@ -1,27 +1,44 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
+
 import RecipeList from "../components/RecipeList/RecipeList";
+import AddButton from "../components/AddButton/AddButton";
+import RecipeForm from "../components/RecipeForm/RecipeForm";
 
-const useStyles = makeStyles((theme) => ({
-  cardGrid: {
-    paddingTop: theme.spacing(8),
-    paddingBottom: theme.spacing(8),
-  },
-}));
+export default class Recipes extends React.Component {
+  state = {
+    open: false,
+  };
 
-export default function Album() {
-  const classes = useStyles();
+  handleClickOpen = (data = {}) => {
+    this.setState({
+      open: true,
+      ...data
+    });
+  };
 
-  return (
-    <React.Fragment>
-      <main>
-        {/* Hero unit */}
-        {/* End hero unit */}
-        <Container className={classes.cardGrid} maxWidth='md'>
+  handleClose = () => {
+    this.setState({
+      name: '',
+      description: '',
+      open: false
+    });
+  };
+
+  handleChange = name => ({ target }) => { this.setState({ [name]: target.value }); };
+
+  render() {
+    const { open } = this.state;
+    return (
+      <React.Fragment>
+        <main>
+          {/* Hero unit */}
+          {/* End hero unit */}
+          <RecipeForm open={open} onClose={this.handleClose} handleChange={this.handleChange} />
           <RecipeList />
-        </Container>
-      </main>
-    </React.Fragment>
-  );
+          <AddButton onClick={this.handleClickOpen} />
+        </main>
+      </React.Fragment>
+    );
+  }
 }
