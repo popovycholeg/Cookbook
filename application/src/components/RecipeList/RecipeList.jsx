@@ -6,20 +6,20 @@ import RecipeCard from "../RecipeCard/RecipeCard";
 import withHocs from "./RecipeListHoc";
 
 function RecipeList(props) {
-  const { data = {}, classes } = props;
+  const { data = {}, classes, onOpen } = props;
   const { recipes = [] } = data;
 
   return (
     <Container className={classes.cardGrid} maxWidth='md'>
-    <Grid container spacing={4}>
-      {recipes.map((recipe) => (
-        <RecipeCard
-          key={recipe.id}
-          name={recipe.name}
-          description={recipe.description}
-        />
-      ))}
-    </Grid>
+      <Grid container spacing={4}>
+        {recipes.map((recipe) => (
+          <RecipeCard
+            key={recipe.id}
+            data={recipe}
+            onOpen={onOpen}
+          />
+        ))}
+      </Grid>
     </Container>
   );
 }

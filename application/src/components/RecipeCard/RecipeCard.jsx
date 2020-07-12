@@ -10,7 +10,8 @@ import Typography from "@material-ui/core/Typography";
 import withHocs from "./RecipeCardHoc";
 
 function RecipeCard(props) {
-  const { classes, name, description } = props;
+  const { classes, data, onOpen } = props;
+  const { id, name, description } = data;
 
   return (
     <Grid item xs={12} sm={6} md={4}>
@@ -30,7 +31,7 @@ function RecipeCard(props) {
           <Button size='small' color='primary'>
             View
           </Button>
-          <Button size='small' color='primary'>
+          <Button size='small' color='primary' onClick={() => onOpen(data)}>
             Edit
           </Button>
         </CardActions>

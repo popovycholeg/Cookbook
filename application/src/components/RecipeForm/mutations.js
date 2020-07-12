@@ -7,3 +7,11 @@ export const addRecipeMutation = gql`
     }
   }
 `;
+
+export const updateRecipeMutation = gql`
+  mutation updateRecipe($id: ID!, $name: String!, $description: String!) {
+    updateRecipe(id: $id, name: $name, description: $description) {
+      name
+    }
+  }
+`;

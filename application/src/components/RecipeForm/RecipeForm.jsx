@@ -9,9 +9,9 @@ import withHocs from "./RecipeFormHoc";
 
 class RecipeForm extends React.Component {
   handleSave = () => {
-    const { selectedValue, onClose, addRecipe } = this.props;
-    const { name, description } = selectedValue;
-    addRecipe({ name, description});
+    const { selectedValue, onClose, addRecipe, updateRecipe } = this.props;
+    const { id, name, description } = selectedValue;
+    id ? updateRecipe({ id, name, description }) : addRecipe({ name, description});
     onClose();
   };
 
@@ -38,14 +38,6 @@ class RecipeForm extends React.Component {
             className={classes.textField}
             value={description}
             onChange={handleChange('description')}
-            margin="normal"
-            variant="outlined"
-          />
-          <TextField
-            id="outlined-dateCreated"
-            value={dateCreated}
-            type="date"
-            className={classes.textField}
             margin="normal"
             variant="outlined"
           />

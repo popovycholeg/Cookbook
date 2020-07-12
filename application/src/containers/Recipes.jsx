@@ -8,6 +8,7 @@ import RecipeForm from "../components/RecipeForm/RecipeForm";
 export default class Recipes extends React.Component {
   state = {
     open: false,
+    id: null,
     name: "",
     description: ""
   };
@@ -32,7 +33,7 @@ export default class Recipes extends React.Component {
   };
 
   render() {
-    const { open, name, description } = this.state;
+    const { open, id, name, description } = this.state;
     return (
       <React.Fragment>
         <main>
@@ -42,9 +43,9 @@ export default class Recipes extends React.Component {
             open={open}
             onClose={this.handleClose}
             handleChange={this.handleChange}
-            selectedValue={{ name, description }}
+            selectedValue={{ id, name, description }}
           />
-          <RecipeList />
+          <RecipeList onOpen={this.handleClickOpen} />
           <AddButton onClick={this.handleClickOpen} />
         </main>
       </React.Fragment>
