@@ -9,8 +9,8 @@ export default class Recipes extends React.Component {
   state = {
     open: false,
     id: null,
-    name: "",
-    description: ""
+    name: null,
+    description: null
   };
 
   handleClickOpen = (data = {}) => {
