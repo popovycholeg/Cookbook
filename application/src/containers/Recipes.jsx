@@ -1,9 +1,9 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
 
 import RecipeList from "../components/RecipeList/RecipeList";
 import AddButton from "../components/AddButton/AddButton";
 import RecipeForm from "../components/RecipeForm/RecipeForm";
+import HeroContent from "../components/HeroContent/HeroContent";
 
 export default class Recipes extends React.Component {
   state = {
@@ -37,8 +37,8 @@ export default class Recipes extends React.Component {
     return (
       <React.Fragment>
         <main>
-          {/* Hero unit */}
-          {/* End hero unit */}
+          {/* <HeroContent /> */}
+          {/* TODO: pagination & sorting & search */}
           <RecipeForm
             open={open}
             onClose={this.handleClose}

@@ -17,7 +17,7 @@ function Footer(props) {
         color='textSecondary'
         component='p'
       >
-        Something here to give the footer a purpose!
+        Oleh Popovych
       </Typography>
       <Copyright />
     </footer>
