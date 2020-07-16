@@ -3,6 +3,7 @@ import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 
 import RecipeCard from "../RecipeCard/RecipeCard";
+import SortingSelect from "../SortingSelect/SortingSelect";
 import withHocs from "./RecipeListHoc";
 
 function RecipeList(props) {
@@ -11,6 +12,7 @@ function RecipeList(props) {
 
   return (
     <Container className={classes.cardGrid} maxWidth='md'>
+      {/* <SortingSelect /> */}
       <Grid container spacing={4}>
         {recipes.map((recipe) => (
           <RecipeCard
